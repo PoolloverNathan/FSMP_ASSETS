@@ -96,13 +96,14 @@ public class CommonBlockRegistry {
                 TALL_SRF_DOOR = FigCorpRegistry.register("tall_srf_door", c.newInstance(FabricBlockSettings.of().sounds(BlockSoundGroup.STONE).strength(5, 5).mapColor(MapColor.OFF_WHITE).pistonBehavior(PistonBehavior.DESTROY), BlockSetType.CHERRY));
             }
             if (SlidingDoorBlock != null) {
+                Constructor<SlidingDoorBlock> c = SlidingDoorBlock.getConstructor(AbstractBlock.Settings.class, BlockSetType.class, Boolean.class);
                 //todo add the sliding doors
 
                 //Brass Brigade blocks that are enabled only when Create exists
                 CREATE_BB_LOGO = FigCorpRegistry.register("create_bb_logo", new GlazedTerracottaBlock(FabricBlockSettings.of().sounds(BlockSoundGroup.METAL).strength(5.0F, 6.0F).requiresTool().mapColor(MapColor.TERRACOTTA_YELLOW)));
                 CREATE_BB_LOGO_CASING = FigCorpRegistry.register("create_bb_logo_casing", new GlazedTerracottaBlock(FabricBlockSettings.of().sounds(BlockSoundGroup.WOOD).strength(2,2).mapColor(MapColor.TERRACOTTA_BROWN)));
 
-                CREATE_BB_BRASS_DOOR = FigCorpRegistry.register("bb_brass_door", new SlidingDoorBlock(FabricBlockSettings.of(), BlockSetType.IRON, false));
+                CREATE_BB_BRASS_DOOR = FigCorpRegistry.register("bb_brass_door", c.newInstance(FabricBlockSettings.of(), BlockSetType.IRON, false));
             }
             if (TallCreateSlidingDoorBlock != null) {
                 //todo add tall sliding doors
